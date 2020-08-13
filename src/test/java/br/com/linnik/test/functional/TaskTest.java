@@ -7,13 +7,17 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TaskTest {
 	
 	
 	public WebDriver acessarAplicacao() {
-		System.setProperty("webdriver.chrome.driver","/home/igorlinnik/Downloads/devops/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver","/home/igorlinnik/Downloads/devops/chromedriver");		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");		
+		WebDriver driver = new ChromeDriver(options);
 		driver.navigate().to("http://localhost:8001/tasks");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
