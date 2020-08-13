@@ -23,8 +23,13 @@ public class TaskTest {
         options.addArguments("--headless");
         
 		//WebDriver driver = new ChromeDriver(options);
-        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-		driver.navigate().to("http://localhost:8001/tasks");
+        //IP DO SELENIUM HUB
+        //WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+		//driver.navigate().to("http://localhost:8001/tasks");
+        //IP DO SELENIUM HUB
+        WebDriver driver = new RemoteWebDriver(new URL("http://172.20.0.2:4444/wd/hub"), options);
+        //IP ONDE A APLICACAO ESTA RODANDO
+		driver.navigate().to("http://192.168.0.49:8001/tasks");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
