@@ -17,6 +17,8 @@ public class TaskTest {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");		
+        options.addArguments("--headless");
+        
 		WebDriver driver = new ChromeDriver(options);
 		driver.navigate().to("http://localhost:8001/tasks");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
